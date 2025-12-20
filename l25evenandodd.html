@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Even and Odd</title>
+        <style type="text/css">
+
+            body{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+            }
+            .container{
+                width:900px;
+                background-color: #f4f4f4;
+
+                display: flex;
+                padding: 20px;
+            }
+            .box{
+                width:150px;
+                height: 300px;
+            }
+            .square1{
+                background-color: red;
+            }
+            .square2{
+                background-color: green;
+            }
+            .square3{
+                background-color: orange;
+            }
+            .square4{
+                background-color: blue;
+            }
+            .square5{
+                background-color: violet;
+            }
+      
+
+        </style>
+    </head>
+
+    <body>
+
+    <div>
+        <h1>even and odd Method</h1>
+        <p>This is awesome jQuery version 3.7.1</p>
+    </div>
+
+    <div class="container">
+     
+        <div class="box square1">Box 1</div>
+        <hr>
+        <div class="box square2">Box 2</div>
+        <hr>
+        <div class="box square3">Box 3</div>
+        <hr>
+        <div class="box square4">Box 4</div>
+        <hr>
+        <div class="box square5">Box 5</div>
+
+    </div>
+
+    <div>
+        <button type="button" id="even-btn">Even Button</button>
+        <button type="button" id="odd-btn">odd Button</button>
+        <button type="button" id="slice-btn">slice Button</button>
+    </div>
+
+      
+        <script src="./libs/jquery-3.7.1.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            // //=> even odd n
+            // $(".square1").click(function(){
+            //     $('.box:nth-of-type(5)').css('background-color','black');
+            // })
+
+            //=> even
+            $("#even-btn").click(function(){
+                $('.box').even().css('background-color','black');
+            })
+
+             //=> odd
+            $("#odd-btn").click(function(){
+                $('.box').odd().css('background-color','black');
+            })
+
+            
+             //=> slice(start index,stop length) the index starts form 0
+            $("#slice-btn").click(function(){
+                $('.box').slice(1,4).css('background-color','black');
+            })
+
+            
+
+        });
+
+
+
+
+
+
+     
+        </script>
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

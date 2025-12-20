@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Effect</title>
+        <style type="text/css">
+
+            body{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+            }
+            .container{
+                width:900px;
+                background-color: #f4f4f4;
+
+                display: flex;
+                padding: 20px;
+            }
+            .box{
+                width:150px;
+                height: 300px;
+                margin:0 10px;
+            }
+            .square1{
+                background-color: red;
+            }
+            .square2{
+                background-color: green;
+            }
+            .square3{
+                background-color: orange;
+            }
+            .square4{
+                background-color: blue;
+            }
+            .square5{
+                background-color: violet;
+            }
+      
+
+        </style>
+    </head>
+
+    <body>
+
+   
+
+    <div class="container">
+     
+        <div class="box square1">Box 1</div>
+        <div class="box square2">Box 2</div>
+        <div class="box square3">Box 3</div>
+        <div class="box square4">Box 4</div>
+        <div class="box square5">Box 5</div>
+
+    </div>
+
+    <div class="control">
+        <button type="button" id="hide-btn">hide</button>
+        <button type="button" id="show-btn">show</button>
+        <button type="button" id="toggle-btn">toggle</button>
+        <button type="button" id="fadeout-btn">fadeout</button>
+        <button type="button" id="fadein-btn">fadein</button>
+        <button type="button" id="fadetoggle-btn">fadetoggle</button>
+        <button type="button" id="fadeto-btn">fadeto</button>
+        <button type="button" id="slideup-btn">slideup</button>
+        <button type="button" id="slidedown-btn">slidedown</button>
+        <button type="button" id="slidetoggle-btn">slidetoggle</button>
+        <button type="button" id="animate-btn">animate</button>
+        <button type="button" id="delay-btn">delay</button>
+        <button type="button" id="clickme-btn">clickme</button>
+        <button type="button" id="stop-btn">stop</button>
+        <button type="button" id="stoptrue-btn">stoptrue</button>
+        <button type="button" id="finish-btn">finish</button>
+        <button type="button" id="dequeue-btn">dequeue</button>
+    </div>
+
+      
+        <script src="./libs/jquery-3.7.1.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+
+           $("#hide-btn").click(function(){
+                $(".square1").hide(1000,function(){
+                    $('.square2,.square3').hide(1500,function(){
+                        $('.square4,.square5').hide(2000);
+                    })
+                });
+           });
+
+           //    $('.box').hide();
+           $('#show-btn').click(function(){
+            $(".square1").show(1000,function(){
+                $(".square2,.square3").show(1500,function(){
+                    $(".square4,.square5").show(2000);
+                });
+            })
+           })
+
+           $('#toggle-btn').click(function(){
+            $(".square1").toggle(1000,function(){
+                $(".square2,.square3").toggle(1500,function(){
+                    $(".square4,.square5").toggle(2000);
+                });
+            })
+           })
+
+           
+           $('#fadein-btn').click(function(){
+            $(".square1").fadeIn(1000,function(){
+                $(".square2,.square3").fadeIn(1500,function(){
+                    $(".square4,.square5").fadeIn(2000);
+                });
+            })
+           })
+
+           $('#fadeout-btn').click(function(){
+            $(".square1").fadeOut(1000,function(){
+                $(".square2,.square3").fadeOut(1500,function(){
+                    $(".square4,.square5").fadeOut(2000);
+                });
+            })
+           })
+
+           $('#fadetoggle-btn').click(function(){
+            $(".square1").fadeToggle(1000,function(){
+                $(".square2,.square3").fadeToggle(1500,function(){
+                    $(".square4,.square5").fadeToggle(2000);
+                });
+            })
+           })
+
+           $('#fadeto-btn').click(function(){
+            $(".square1").fadeTo(1000,0.5,function(){
+                $(".square2,.square3").fadeTo(1500,0.5,function(){
+                    $(".square4,.square5").fadeTo(2000,0.5);
+                });
+            })
+           })
+
+           $('#slideup-btn').click(function(){
+            $(".square1").slideUp(1000,function(){
+                $(".square2,.square3").slideUp(1500,function(){
+                    $(".square4,.square5").slideUp(2000);
+                });
+            })
+           })
+
+           $('#slidedown-btn').click(function(){
+            $(".square1").slideDown(1000,function(){
+                $(".square2,.square3").slideDown(1500,function(){
+                    $(".square4,.square5").slideDown(2000);
+                });
+            })
+           })
+
+            $('#slidetoggle-btn').click(function(){
+            $(".square1").slideToggle(1000,function(){
+                $(".square2,.square3").slideToggle(1500,function(){
+                    $(".square4,.square5").slideToggle(2000);
+                });
+            })
+           })
+
+           $('#animate-btn').click(function(){
+            $(".square1").animate({"height":"50%"},1000,function(){
+                $(".square2,.square3").animate({"height":"50%"},function(){
+                    $(".square4,.square5").animate({"height":"50%"},2000);
+                });
+            })
+           })
+
+        //    delay no css
+           $('#delay-btn').click(function(){
+            // $(".square1").delay(1000).animate({"height":"50%"},1000,function(){
+            //     $(".square2,.square3").animate({"height":"50%"},function(){
+            //         $(".square4,.square5").animate({"height":"50%"},2000);
+            //     });
+            // })
+
+            var sql = $('.square1');
+            sql.animate({"height":"100px"},"slow");
+            sql.animate({"height":"200px"},"slow");
+            sql.animate({"height":"200px"},"slow");
+            sql.animate({"height":"300px"},"slow");
+            sql.animate({"height":"400px"},"slow");
+            sql.animate({"height":"400px"},"slow");
+            sql.animate({"height":"150px"},"slow");
+
+            console.log(sql.queue().length);
+
+           });
+
+           $('#clickme-btn').click(function(){
+            $('.square1').html("<i>I am ready to start now</i>").animate({"width":500},5000);
+            $('.square1').html("<i>Did you click stop btn</i>").animate({"width":100},3000);
+           });
+
+            $("#stop-btn").click(function(){
+                $(".square1").stop();
+            });
+
+            $("#stoptrue-btn").click(function(){
+                $(".square1").stop(true);
+            });
+
+            $("#finish-btn").click(function(){
+                $(".square1").finish();
+            });
+
+            $("#dequeue-btn").click(function(){
+                let div5 = $(".square5");
+
+                div5.animate({width:300,height:300},1000);
+                div5.animate({width:200,height:200},1000);
+                div5.queue(function(){
+                    div5.css("background-color","steelblue");
+                    div5.dequeue();
+                });
+                div5.slideUp(1000);
+                div5.slideDown(1000);
+            });
+           
+            
+
+        });
+
+
+
+
+
+
+     
+        </script>
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

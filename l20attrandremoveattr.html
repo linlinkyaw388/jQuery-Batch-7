@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Attributes and removeattr</title>
+        <style type="text/css">
+       
+           .container{
+            width:800px;
+            background-color: #f4f4f4;
+            padding:20px;
+           }
+           .text-primary{
+            color:blue;
+           }
+           .text-light{
+            color:#fff;
+           }
+           .text-center{
+            text-align:center;
+           }
+           .bg-info{
+            background-color: lightskyblue;
+           }
+
+        </style>
+    </head>
+
+    <body>
+
+    <div class="container">
+        <div>
+            <img src="./photo/img/logo1.png" alt="log1" width="100">
+            <h1 id="1">Hello Myanamr</h1>
+            <h1 id="2">Hello Thailand</h1>
+            <h1 id="3">Hello Indonesia</h1>
+            <h1 id="4">Hello Srilanka</h1>
+        </div>
+
+        <button type="button" id="txtpri-btn">text-primary</button>
+        <button type="button" id="bginfo-btn">bginfo</button>
+        <button type="button" id="txtbg-btn">text-background</button>
+        <button type="button" id="multiattr-btn">multiattr</button>
+        <button type="button" id="rmatttr-btn">rmatttr</button>
+        <button type="button" id="txtcnt-btn">text-center</button>
+        <button type="button" id="rmtxtlight-btn">remove-text-light</button>
+        <button type="button" id="hascalss-btn">hascalss</button>
+        <button type="button" id="toggleclass-btn">toggleclass</button>
+
+    </div>
+
+      
+        <script src="./libs/jquery-3.7.1.js" type="text/javascript"></script>
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+ 
+            //=>attr(attributes.value)
+            $("#txtpri-btn").click(function(){
+                $("h1").attr("class","text-primary");
+            })
+
+            $("#bginfo-btn").click(function(){
+                $("h1").attr("class","bg-info");
+            })
+
+            $("#txtbg-btn").click(function(){
+                $("h1").attr("class","text-light bg-info");
+            })
+
+            $("#multiattr-btn").click(function(){
+                $("img").attr({
+                    src:'./photo/img/logo2.png',
+                    alt:"logo2",
+                    width:"150px",
+                    title:"this is logo2",
+                    abc:'this is logo image'
+                });
+            });
+
+            //=>remove attr
+            $("#rmatttr-btn").click(function(){
+                $("h1").removeAttr("id class");
+            });
+
+            //=>addclass(value)
+            $('#txtcnt-btn').click(function(){
+                $('h1').addClass("text-center");
+            })
+
+            //=>removecalss(value)
+            $('#rmtxtlight-btn').click(function(){
+                $('h1').removeClass("text-light");
+            })
+
+            //=>hasClass(value)
+            $('#hascalss-btn').click(function(){
+                alert($("h1").hasClass("text-light")); //false
+            })
+
+             //=>toggleclass(value)
+            $('#toggleclass-btn').click(function(){
+                alert($("h1").toggleClass("text-center"));
+            })
+        });
+
+
+
+
+
+
+     
+        </script>
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

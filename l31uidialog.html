@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> UI dialog</title>
+        <link rel="stylesheet" href="./libs/jquery-ui-1.13.3/jquery-ui-1.13.3/jquery-ui.min.css" type="text/css">
+        <style type="text/css">
+
+          
+        </style>
+    </head>
+
+    <body>
+
+        <div id="dbox" title="How to use jQuery?">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+        </div>
+
+        <button type="button" id="btn">Click Me</button>
+        <button type="button" id="toggle-btn">Toggle Button</button>
+
+
+      
+        <script src="./libs/jquery-3.7.1.js" type="text/javascript"></script>
+        <script src="./libs/jquery-ui-1.13.3/jquery-ui-1.13.3/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $('#dbox').dialog({
+                autoOpen:false,
+                widht:400,
+                height:200,
+                title:"Are you ready",
+                hide:"slideUp",
+                show:"slideDown",
+                position:{
+                    // at:"left top",
+                    // at:"right top",
+                    // at:"right bottom",
+                    // at:"left bottom",
+                    // at:"top",
+                    at:"bottom",
+                }
+            }).css({
+                'background-color':"gray",
+                "color":"#fff"
+            });
+
+            $("#btn").click(function(){
+                $("#dbox").dialog("open");
+            });
+
+            $('#toggle-btn').click(function(){
+                $('#dbox').dialog('isOpen') === true ? $('#dbox').dialog("close") : $('#dbox').dialog("open");
+            })
+
+        });
+
+
+
+
+
+
+
+     
+        </script>
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
