@@ -59,7 +59,7 @@
 
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea type="message" name="message" id="message" class="form-control" rows="5" placeholder="Enter your message"></textarea>
+                <textarea type="message" name="message" id="message" class="form-control" rows="5" placeholder="Enter your message" disabled></textarea>
                 <span id="characounts"></span> ( <span id="totalsms">0</span>/5SMS)
                 <!-- 100 character are remaining.(0/5sms) -->
             </div>
@@ -80,19 +80,71 @@
            $("#message").attr("maxlength",100);
 
            let maxlength = $("#message").attr("maxlength");
-           console.log(maxlength);//100
+        //    console.log(maxlength);//100
            $("#characounts").text(`${maxlength} character are remaining.`);
 
            $("#number").keyup(function(){
-            console.log($(this).val());
+            // console.log($(this).val());
             if($.trim($(this).val()).length >= 9){
-                console.log("yes");
+                // console.log("yes");
                 $("#message").removeAttr("disabled",true);
             }else{
-                console.log("NO");
+                // console.log("NO");
                 $("#message").attr("disabled",true);
             }
+           });
+
+           $('#message').keyup(function(){
+            let getsmslength = $(this).val().length;
+            //console.log(getsmslength);
+            let remainingchars = maxlength - getsmslength;
+
+            $("#characounts").text(`${remainingchars} character are remaining.`);
+
+            if(getsmslength === 0){
+                $("#totalsms").text("0");
+            }else if(getsmslength <= 20){
+                $("#totalsms").text("1");
+            }else if(getsmslength <= 40){
+                $("#totalsms").text("2");
+            }else if(getsmslength <= 60){
+                $("#totalsms").text("3");
+            }else if(getsmslength <= 80){
+                $("#totalsms").text("4");
+            }else if(getsmslength <= 100){
+                $("#totalsms").text("5");
+            }
+
+
+            if($.trim($(this).val()) !== ""){
+                $("[type=submit]").removeAttr('disabled');
+            }else{
+                $("[type=submit]").attr("disabled",true);   //ထည့်ရင် true ပေးရ။
+            }
+            
+
+           });
+
+           $("form").submit(function(e){
+            e.preventDefault();
+
+            let getdatas = {
+                number : $('#number').val(),
+                message: $("#message").val()
+            }
+            console.log(getdatas);
+            console.log(getdatas.number,getdatas.message);
            })
+
+
+
+
+
+
+
+
+
+
         });
 
 
